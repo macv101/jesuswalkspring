@@ -35,8 +35,13 @@ public class StudentServiceImpl implements StudentService{
 		return repository.findByGrade(grade);
 	}
 
+	public Student find(Long id) {
+		return repository.findOne(id);
+	}
+	
 	public List<Student> findAll() {
 		return (List<Student>) repository.findAll();
 	}
+
 
 }

@@ -51,7 +51,7 @@ public class MySqlConfig {
 		
 		DB_USERNAME = "root"; 
 		DB_PASSWORD = ""; 
-		DB_URL = "jdbc:mysql://localhost:3306/test";
+		DB_URL = "jdbc:mysql://localhost:3306/jwtest";
 		 
 
 		DB_DRIVER = "com.mysql.jdbc.Driver";

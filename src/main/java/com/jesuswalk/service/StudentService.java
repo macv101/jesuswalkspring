@@ -13,6 +13,7 @@ public interface StudentService {
 
 	List<Student> findByAge(int age);
 	List<Student> findByGrade(int grade);
+	Student find(Long id);
 	Student save(Student student);
 	List<Student> findAll();
 	
