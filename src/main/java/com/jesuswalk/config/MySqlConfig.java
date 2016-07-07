@@ -37,7 +37,7 @@ public class MySqlConfig {
 	}
 
 	private void InitSQLVariables() {
-		/*String USERNAME = System.getenv("OPENSHIFT_MYSQL_DB_USERNAME");
+		String USERNAME = System.getenv("OPENSHIFT_MYSQL_DB_USERNAME");
 		String PASSWORD = System.getenv("OPENSHIFT_MYSQL_DB_PASSWORD");
 		String HOST = System.getenv("OPENSHIFT_MYSQL_DB_HOST");
 		String PORT = System.getenv("OPENSHIFT_MYSQL_DB_PORT");
@@ -46,12 +46,12 @@ public class MySqlConfig {
 
 		DB_USERNAME = USERNAME;
 		DB_PASSWORD = PASSWORD;
-		DB_URL = URL;*/
+		DB_URL = URL;
 
 		
-		DB_USERNAME = "root"; 
+		/*DB_USERNAME = "root"; 
 		DB_PASSWORD = ""; 
-		DB_URL = "jdbc:mysql://localhost:3306/jwtest";
+		DB_URL = "jdbc:mysql://localhost:3306/jwtest";*/
 		 
 
 		DB_DRIVER = "com.mysql.jdbc.Driver";

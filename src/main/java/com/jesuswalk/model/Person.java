@@ -14,7 +14,6 @@ public abstract class Person extends BaseModel{
 	private String sex;
 	private String cellphonenumber;
 	private String homephonenumber;
-	private String email;
 	
 	@ManyToOne
     @JoinColumn(name="address_id")
@@ -54,22 +53,6 @@ public abstract class Person extends BaseModel{
 		this.birthdate = birthdate;
 	}
 
-	public String getFirstname() {
-		return firstname;
-	}
-
-	public void setFirstname(String firstname) {
-		this.firstname = firstname;
-	}
-
-	public String getLastname() {
-		return lastname;
-	}
-
-	public void setLastname(String lastname) {
-		this.lastname = lastname;
-	}
-
 	public String getCellphonenumber() {
 		return cellphonenumber;
 	}
@@ -84,14 +67,6 @@ public abstract class Person extends BaseModel{
 
 	public void setHomephonenumber(String homephonenumber) {
 		this.homephonenumber = homephonenumber;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
 	}
 
 	public Address getAddress() {

@@ -24,6 +24,7 @@ public class StudentServiceImpl implements StudentService{
 	}
 	
 	public Student save(Student student) {
+		student.prePersist();
 		return repository.save(student);
 	}
 	
@@ -35,7 +36,7 @@ public class StudentServiceImpl implements StudentService{
 		return repository.findByGrade(grade);
 	}
 
-	public Student find(Long id) {
+	public Student findOne(Long id) {
 		return repository.findOne(id);
 	}
 	

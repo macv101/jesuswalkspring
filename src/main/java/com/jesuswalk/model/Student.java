@@ -13,7 +13,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "student")
-public class Student extends Person {
+public class Student extends User {
 
 	private int age;
 	private int grade;
@@ -26,8 +26,6 @@ public class Student extends Person {
 	
 	private String registrationpackage;
 	private String informationpacket;
-	
-	private String password;
 	
 	@ElementCollection
 	@CollectionTable(name="socialmedia", joinColumns= @JoinColumn(name="student_id"))
@@ -84,14 +82,6 @@ public class Student extends Person {
 
 	public void setInformationpacket(String informationpacket) {
 		this.informationpacket = informationpacket;
-	}
-
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
 	}
 
 	public List<String> getSocialmedia() {
