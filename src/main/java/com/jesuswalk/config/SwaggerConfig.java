@@ -23,7 +23,7 @@ public class SwaggerConfig {
 	}
 
 	private ApiInfo apiInfo() {
-		Contact contact = new Contact("Michael Villar", "jesuswalkyouth.com", "michaelv@jesuswalkyouth.com");
+		Contact contact = new Contact("Michael Villar", "http://www.jesuswalkyouth.com", "michaelv@jesuswalkyouth.com");
 		return new ApiInfoBuilder().title("JesusWalk Spring REST with Swagger")
 				.description("JesusWalk's RESTful API using SpringBoot and Swagger")
 				.termsOfServiceUrl("http://www-03.ibm.com/software/sla/sladb.nsf/sla/bm?Open")
