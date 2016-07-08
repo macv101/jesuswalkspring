@@ -8,6 +8,8 @@ import javax.persistence.Column;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -22,9 +24,12 @@ public class Student extends User {
 	
 	@ManyToOne
     @JoinColumn(name="legalguardian_id")
-	LegalGuardian guardian;
+	private LegalGuardian guardian;
 	
-	private String registrationpackage;
+	@ManyToMany
+    @JoinTable(name="counselor_student")
+	private List<Counselor> counselors;
+	
 	private String informationpacket;
 	
 	@ElementCollection
@@ -67,13 +72,13 @@ public class Student extends User {
 	public void setGuardian(LegalGuardian guardian) {
 		this.guardian = guardian;
 	}
-
-	public String getRegistrationpackage() {
-		return registrationpackage;
+	
+	public List<Counselor> getCounselor() {
+		return counselors;
 	}
 
-	public void setRegistrationpackage(String registrationpackage) {
-		this.registrationpackage = registrationpackage;
+	public void setCounselor(List<Counselor> counselors) {
+		this.counselors = counselors;
 	}
 
 	public String getInformationpacket() {

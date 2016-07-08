@@ -1,0 +1,49 @@
+Executive
+		40100 - Executive: General  	
+		40103 - Executive: Events	
+		40104 - Executive: Staff Accomodations & Travel	
+		40101 - Executive: Retreat	
+		40102 - Executive: Misc  
+
+Marketing
+	Marketing
+		10100 - Marketing: General  		
+		10101 - Marketing: Events		
+		10102 - Marketing: Misc  
+		10110 - Marketing: Networking General		
+		10111 - Marketing: Networking Travel		
+		10120 - Marketing: Creative Media General		
+		10121 - Marketing: Creative Media Welcome Packets		
+	Production
+		10200 - Production: General  		
+		10201 - Production: Stage Design    		
+		10202 - Production: Misc  
+		10210 - Production: Technical Services General		
+		10211 - Production: Technical Services HIU		
+
+Programs
+		20100 - Program: General  		
+		20101 - Program: Honorarium    	
+		20110 - Program: Community Service General
+		
+Operations
+	Finance
+		30100 - Finance: General  		
+		30101 - Finance: Banking    		
+		30102 - Finance: Misc 
+		30103 - Finance: Registration		
+		30104 - Finance: Insurance		
+		30105 - Finance: Fundraising
+	Conference Services
+		30200 - Conference Services: General  		
+		30201 - Conference Services: Pre-Conference General  		
+		30202 - Conference Services: Misc  
+		30203 - Conference Services: Dorm Accomodations		
+		30204 - Conference Services: Food		
+		30210 - Conference Services: Counselor Services General		
+		30211 - Conference Services: Counselor Services Workshops		
+	Systems Development
+		30300 - Systems Development: General  		
+		30301 - Systems Development: Web App		
+		30202 - Systems Development: Misc  
+		30203 - Systems Development: Website				

@@ -11,7 +11,7 @@ import javax.persistence.MappedSuperclass;
 public abstract class BaseModel {
 	
 	@Id
-	@GeneratedValue(strategy= GenerationType.AUTO)
+	@GeneratedValue(strategy= GenerationType.TABLE)
 	protected Long id;
 	
 	protected Date creationdate;
