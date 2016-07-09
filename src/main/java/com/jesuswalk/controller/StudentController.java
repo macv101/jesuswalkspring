@@ -24,18 +24,18 @@ import io.swagger.annotations.ApiOperation;
  */
 
 @RestController
-@Api("students")
-@RequestMapping(value = "students")
+@Api("user/students")
+@RequestMapping(value = "user/students")
 public class StudentController {
 
 	@Autowired
-	private StudentService studentService;
+	private StudentService service;
 
 	@ApiOperation(value = "createStudent", nickname = "createStudent")
 	@RequestMapping(method = RequestMethod.POST)
 	@ResponseBody
 	public ResponseEntity<Student> create(@RequestBody Student student) {
-		Student ret = studentService.save(student);
+		Student ret = service.save(student);
 
 		return new ResponseEntity<Student>(ret, HttpStatus.OK);
 
@@ -45,7 +45,7 @@ public class StudentController {
 	@RequestMapping(method = RequestMethod.PUT)
 	@ResponseBody
 	public ResponseEntity<Student> update(@RequestBody Student student) {
-		Student ret = studentService.save(student);
+		Student ret = service.save(student);
 
 		return new ResponseEntity<Student>(ret, HttpStatus.OK);
 
@@ -55,7 +55,7 @@ public class StudentController {
 	@RequestMapping(value = "{id}", method = RequestMethod.GET)
 	@ResponseBody
 	public ResponseEntity<Student> findOne(@PathVariable("id") Long id) {
-		Student ret = studentService.findOne(id);
+		Student ret = service.findOne(id);
 
 		return new ResponseEntity<Student>(ret, HttpStatus.OK);
 
@@ -65,7 +65,7 @@ public class StudentController {
 	@RequestMapping(method = RequestMethod.GET)
 	@ResponseBody
 	public ResponseEntity<List<Student>> findAll() {
-		List<Student> ret = studentService.findAll();
+		List<Student> ret = service.findAll();
 
 		return new ResponseEntity<List<Student>>(ret, HttpStatus.OK);
 
@@ -75,7 +75,7 @@ public class StudentController {
 	@RequestMapping(value = "/age/{age}",method = RequestMethod.GET)
 	@ResponseBody
 	public ResponseEntity<List<Student>> findByAge(@PathVariable("age") int age) {
-		List<Student> ret = studentService.findByAge(age);
+		List<Student> ret = service.findByAge(age);
 
 		return new ResponseEntity<List<Student>>(ret, HttpStatus.OK);
 
@@ -85,7 +85,7 @@ public class StudentController {
 	@RequestMapping(value = "/grade/{grade}",method = RequestMethod.GET)
 	@ResponseBody
 	public ResponseEntity<List<Student>> findByGrade(@PathVariable("grade") int grade) {
-		List<Student> ret = studentService.findByAge(grade);
+		List<Student> ret = service.findByAge(grade);
 
 		return new ResponseEntity<List<Student>>(ret, HttpStatus.OK);
 

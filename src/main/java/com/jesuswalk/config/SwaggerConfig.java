@@ -15,13 +15,29 @@ import springfox.documentation.spring.web.plugins.Docket;
 public class SwaggerConfig {
 
 	@Bean
-	public Docket newsApi() {
-		return new Docket(DocumentationType.SWAGGER_2).groupName("JesusWalk").apiInfo(apiInfo()).select()
+	public Docket api() {
+		return new Docket(DocumentationType.SWAGGER_2).groupName("All").apiInfo(apiInfo()).select()
 				.apis(RequestHandlerSelectors.any())
 				.paths(PathSelectors.any())
 				.build();
 	}
-
+	
+	@Bean
+	public Docket financialApi() {
+		return new Docket(DocumentationType.SWAGGER_2).groupName("jwFinances").apiInfo(apiInfo()).select()
+				.apis(RequestHandlerSelectors.any())
+				.paths(PathSelectors.ant("/finance/*"))
+				.build();
+	}
+	
+	@Bean
+	public Docket userApi() {
+		return new Docket(DocumentationType.SWAGGER_2).groupName("jwUsers").apiInfo(apiInfo()).select()
+				.apis(RequestHandlerSelectors.any())
+				.paths(PathSelectors.ant("/user/*"))
+				.build();
+	}
+	
 	private ApiInfo apiInfo() {
 		Contact contact = new Contact("Michael Villar", "http://www.jesuswalkyouth.com", "michaelv@jesuswalkyouth.com");
 		return new ApiInfoBuilder().title("JesusWalk Spring REST with Swagger")
