@@ -1,4 +1,4 @@
-package com.jesuswalk.model;
+package com.jesuswalk.entity;
 
 import java.util.List;
 

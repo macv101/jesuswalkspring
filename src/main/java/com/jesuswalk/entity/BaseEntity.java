@@ -1,4 +1,4 @@
-package com.jesuswalk.model;
+package com.jesuswalk.entity;
 
 import java.util.Date;
 
@@ -8,7 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 
 @MappedSuperclass
-public abstract class BaseModel {
+public abstract class BaseEntity {
 	
 	@Id
 	@GeneratedValue(strategy= GenerationType.TABLE)
@@ -17,7 +17,7 @@ public abstract class BaseModel {
 	protected Date creationdate;
 	protected Date lastupdated;
 	
-	BaseModel() {
+	BaseEntity() {
 		super();
 	}
 

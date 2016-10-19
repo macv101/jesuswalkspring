@@ -1,4 +1,4 @@
-package com.jesuswalk.model;
+package com.jesuswalk.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;

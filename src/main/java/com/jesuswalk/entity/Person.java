@@ -1,4 +1,4 @@
-package com.jesuswalk.model;
+package com.jesuswalk.entity;
 
 import java.util.Date;
 
@@ -7,7 +7,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.MappedSuperclass;
 
 @MappedSuperclass
-public abstract class Person extends BaseModel{
+public abstract class Person extends BaseEntity{
 
 	private String firstname;
 	private String lastname;

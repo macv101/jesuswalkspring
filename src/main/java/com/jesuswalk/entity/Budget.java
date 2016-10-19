@@ -1,4 +1,4 @@
-package com.jesuswalk.model;
+package com.jesuswalk.entity;
 
 import java.math.BigDecimal;
 import java.util.Date;
@@ -10,7 +10,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="budget")
-public class Budget extends BaseModel{
+public class Budget extends BaseEntity{
 
 	@OneToOne
 	@JoinColumn(name = "account_code")

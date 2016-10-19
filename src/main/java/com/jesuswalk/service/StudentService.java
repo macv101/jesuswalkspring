@@ -2,7 +2,7 @@ package com.jesuswalk.service;
 
 import java.util.List;
 
-import com.jesuswalk.model.Student;
+import com.jesuswalk.entity.Student;
 
 /*
  * Service

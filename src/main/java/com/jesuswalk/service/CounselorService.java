@@ -2,7 +2,7 @@ package com.jesuswalk.service;
 
 import java.util.List;
 
-import com.jesuswalk.model.Counselor;
+import com.jesuswalk.entity.Counselor;
 
 public interface CounselorService {
 

@@ -1,4 +1,4 @@
-package com.jesuswalk.model;
+package com.jesuswalk.entity;
 
 import java.math.BigDecimal;
 import java.util.Date;
@@ -8,7 +8,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="revenue")
-public class Revenue extends BaseModel{
+public class Revenue extends BaseEntity{
 	
 	private String name;
 	private String type;

@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.springframework.data.repository.CrudRepository;
 
-import com.jesuswalk.model.Staff;
+import com.jesuswalk.entity.Staff;
 
 public interface StaffRepository extends CrudRepository<Staff, Long>{
 

@@ -1,4 +1,4 @@
-package com.jesuswalk.model;
+package com.jesuswalk.entity;
 
 import java.math.BigDecimal;
 
@@ -9,7 +9,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="registration")
-public class Registration extends BaseModel{
+public class Registration extends BaseEntity{
 	
 	private int year;
 	private String registrationpackage;

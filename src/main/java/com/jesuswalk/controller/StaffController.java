@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.jesuswalk.model.Staff;
+import com.jesuswalk.entity.Staff;
 import com.jesuswalk.service.StaffService;
 
 import io.swagger.annotations.Api;

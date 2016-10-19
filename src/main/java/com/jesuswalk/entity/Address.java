@@ -1,11 +1,11 @@
-package com.jesuswalk.model;
+package com.jesuswalk.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "address")
-public class Address extends BaseModel{
+public class Address extends BaseEntity{
 
 	private String street;
 	private String city;

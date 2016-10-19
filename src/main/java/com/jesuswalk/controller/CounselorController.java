@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.jesuswalk.model.Counselor;
+import com.jesuswalk.entity.Counselor;
 import com.jesuswalk.service.CounselorService;
 
 import io.swagger.annotations.Api;
