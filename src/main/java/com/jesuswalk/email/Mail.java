@@ -1,5 +1,6 @@
 package com.jesuswalk.email;
 
+import java.util.Date;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -8,10 +9,13 @@ public class Mail {
 	
 	@JsonIgnore
 	private List<String> headers;
+	
 	private List<String> to;
 	private List<String> from;
 	private String subject;
 	private String content;
+	private Date dateReceived;
+	private boolean unread;
 	
 	public List<String> getHeaders() {
 		return headers;
@@ -42,6 +46,18 @@ public class Mail {
 	}
 	public void setContent(String content) {
 		this.content = content;
+	}
+	public Date getDateReceived() {
+		return dateReceived;
+	}
+	public void setDateReceived(Date dateReceived) {
+		this.dateReceived = dateReceived;
+	}
+	public boolean isUnread() {
+		return unread;
+	}
+	public void setUnread(boolean unread) {
+		this.unread = unread;
 	}
 	
 	
