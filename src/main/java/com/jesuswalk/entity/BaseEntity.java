@@ -7,6 +7,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 @MappedSuperclass
 public abstract class BaseEntity {
 	
@@ -14,6 +16,7 @@ public abstract class BaseEntity {
 	@GeneratedValue(strategy= GenerationType.TABLE)
 	protected Long id;
 	
+	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern="MM/dd/yyyy")
 	protected Date creationdate;
 	protected Date lastupdated;
 	

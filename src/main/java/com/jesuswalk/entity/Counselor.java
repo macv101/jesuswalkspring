@@ -6,6 +6,8 @@ import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name = "counselor")
 public class Counselor extends User {
@@ -13,9 +15,14 @@ public class Counselor extends User {
 	private String groupname;
 	private String groupclass;
 	
+	@JsonIgnore
 	@ManyToMany(mappedBy="counselors")
 	private List<Student> students;
 
+	public Counselor() {
+		this.setType("counselor");
+	}
+	
 	public String getGroupname() {
 		return groupname;
 	}

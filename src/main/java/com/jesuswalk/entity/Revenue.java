@@ -6,6 +6,8 @@ import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 @Entity
 @Table(name="revenue")
 public class Revenue extends BaseEntity{
@@ -18,6 +20,7 @@ public class Revenue extends BaseEntity{
 	private Date receivedate;
 	private Date depositdate;
 	private int checknumber;
+	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern="MM/dd/yyyy")
 	private Date dateoncheck;
 	private String notes;
 	

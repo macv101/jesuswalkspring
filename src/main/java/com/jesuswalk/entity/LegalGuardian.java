@@ -8,7 +8,6 @@ import javax.persistence.Table;
 public class LegalGuardian extends Person {
 
 	private String relationship;
-	private String email;
 	
 	public String getRelationship() {
 		return relationship;
@@ -16,13 +15,5 @@ public class LegalGuardian extends Person {
 
 	public void setRelationship(String relationship) {
 		this.relationship = relationship;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
 	}
 }

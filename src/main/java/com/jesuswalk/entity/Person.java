@@ -2,9 +2,12 @@ package com.jesuswalk.entity;
 
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.MappedSuperclass;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 @MappedSuperclass
 public abstract class Person extends BaseEntity{
@@ -14,11 +17,13 @@ public abstract class Person extends BaseEntity{
 	private String sex;
 	private String cellphonenumber;
 	private String homephonenumber;
+	private String email;
 	
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name="address_id")
-	private Address address;
+	private Address address = new Address();
 	
+	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern="MM/dd/yyyy")
 	private Date birthdate;
 	
 	public String getFirstName() {
@@ -75,6 +80,14 @@ public abstract class Person extends BaseEntity{
 
 	public void setAddress(Address address) {
 		this.address = address;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 	
 }

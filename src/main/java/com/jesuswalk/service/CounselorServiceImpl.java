@@ -19,6 +19,7 @@ public class CounselorServiceImpl implements CounselorService {
 	}
 	
 	public Counselor save(Counselor counselor) {
+		counselor.prePersist();
 		return repository.save(counselor);
 	}
 

@@ -19,6 +19,7 @@ public class StaffServiceImpl implements StaffService {
 	}
 
 	public Staff save(Staff staff) {
+		staff.prePersist();
 		return repository.save(staff);
 	}
 

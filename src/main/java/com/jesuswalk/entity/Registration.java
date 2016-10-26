@@ -13,12 +13,12 @@ public class Registration extends BaseEntity{
 	
 	private int year;
 	private String registrationpackage;
-	private String type;
 	private String rate;
 	private String status;
 	private String method;
 	private BigDecimal amountpaid;
 	private BigDecimal cost;
+	private String notes;
 
 	@ManyToOne
     @JoinColumn(name="user_id")
@@ -38,14 +38,6 @@ public class Registration extends BaseEntity{
 	
 	public void setRegistrationpackage(String registrationpackage) {
 		this.registrationpackage = registrationpackage;
-	}
-	
-	public String getType() {
-		return type;
-	}
-	
-	public void setType(String type) {
-		this.type = type;
 	}
 	
 	public String getRate() {
@@ -94,6 +86,14 @@ public class Registration extends BaseEntity{
 
 	public void setUser(User user) {
 		this.user = user;
+	}
+
+	public String getNotes() {
+		return notes;
+	}
+
+	public void setNotes(String notes) {
+		this.notes = notes;
 	}
 	
 }

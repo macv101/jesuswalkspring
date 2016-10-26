@@ -8,6 +8,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 @Entity
 @Table(name="budget")
 public class Budget extends BaseEntity{
@@ -16,6 +18,8 @@ public class Budget extends BaseEntity{
 	@JoinColumn(name = "account_code")
 	private AccountCode accountcode;
 	private String year;
+	
+	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern="MM/dd/yyyy")
 	private Date projecteddate;
 	private String itemdescription;
 	private BigDecimal cost;

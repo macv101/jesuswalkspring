@@ -11,6 +11,10 @@ public class Staff extends User {
 	private String committee;
 	private String position;
 	
+	public Staff() {
+		this.setType("staff");
+	}
+	
 	public String getDepartment() {
 		return department;
 	}

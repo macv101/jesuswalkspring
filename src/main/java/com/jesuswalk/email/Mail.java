@@ -3,6 +3,7 @@ package com.jesuswalk.email;
 import java.util.Date;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 public class Mail {
@@ -14,6 +15,8 @@ public class Mail {
 	private List<String> from;
 	private String subject;
 	private String content;
+	
+	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern="MM/dd/yyyy")
 	private Date dateReceived;
 	private boolean unread;
 	
