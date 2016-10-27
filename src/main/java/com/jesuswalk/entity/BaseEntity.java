@@ -14,11 +14,10 @@ public abstract class BaseEntity {
 	
 	@Id
 	@GeneratedValue(strategy= GenerationType.TABLE)
-	protected Long id;
+	private Long id;
 	
-	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern="MM/dd/yyyy")
-	protected Date creationdate;
-	protected Date lastupdated;
+	private Date creationdate;
+	private Date lastupdated;
 	
 	BaseEntity() {
 		super();
@@ -32,6 +31,7 @@ public abstract class BaseEntity {
 		this.id = id;
 	}
 
+	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern="yyyy.MM.dd HH:mm")
 	public Date getCreationDate() {
 		return creationdate;
 	}
@@ -40,6 +40,7 @@ public abstract class BaseEntity {
 		this.creationdate = creationdate;
 	}
 
+	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern="yyyy.MM.dd HH:mm")
 	public Date getLastUpdated() {
 		return lastupdated;
 	}

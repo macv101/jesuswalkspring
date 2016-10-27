@@ -23,7 +23,6 @@ public abstract class Person extends BaseEntity{
     @JoinColumn(name="address_id")
 	private Address address = new Address();
 	
-	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern="MM/dd/yyyy")
 	private Date birthdate;
 	
 	public String getFirstName() {
@@ -50,6 +49,7 @@ public abstract class Person extends BaseEntity{
 		this.sex = sex;
 	}
 	
+	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern="yyyy.MM.dd")
 	public Date getBirthdate() {
 		return birthdate;
 	}

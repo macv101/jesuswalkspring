@@ -40,7 +40,7 @@ public class UserController {
 	public ResponseEntity<List<User>> saveAll(
 			@RequestBody List<User> users ) {
 		List<User> ret = service.save(users);
-
+				
 		return new ResponseEntity<List<User>>(ret, HttpStatus.OK);
 
 	}

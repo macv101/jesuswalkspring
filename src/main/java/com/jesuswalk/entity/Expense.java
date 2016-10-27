@@ -23,7 +23,7 @@ public class Expense extends BaseEntity {
 	@JoinColumn(name = "account_code")
 	private AccountCode accountcode;
 	
-	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern="MM/dd/yyyy")
+	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern="yyyy.MM.dd")
 	private Date dateofpurchase;
 	private String description;
 	private BigDecimal amount;

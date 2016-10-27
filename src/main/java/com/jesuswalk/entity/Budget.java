@@ -19,7 +19,7 @@ public class Budget extends BaseEntity{
 	private AccountCode accountcode;
 	private String year;
 	
-	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern="MM/dd/yyyy")
+	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern="yyyy.MM.dd")
 	private Date projecteddate;
 	private String itemdescription;
 	private BigDecimal cost;
