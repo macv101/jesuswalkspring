@@ -28,7 +28,7 @@ public class UserController {
 
 	@ApiOperation(value = "getAllUsers", nickname = "getAllUsers")
 	@RequestMapping(method = RequestMethod.GET)
-	@PreAuthorize("hasAnyRole('STAFF', 'ADMIN')")
+	//@PreAuthorize("hasAnyRole('STAFF', 'ADMIN')")
 	@ResponseBody
 	public ResponseEntity<List<User>> findAll() {
 		List<User> ret = service.findAll();

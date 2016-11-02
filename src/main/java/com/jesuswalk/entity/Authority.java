@@ -2,6 +2,9 @@ package com.jesuswalk.entity;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.util.List;
 
 @Entity
@@ -38,6 +41,7 @@ public class Authority {
         this.name = name;
     }
 
+    @JsonIgnore
     public List<User> getUsers() {
         return users;
     }
