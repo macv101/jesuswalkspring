@@ -1,8 +1,6 @@
 package com.jesuswalk.config;
 
 import static org.springframework.http.HttpMethod.GET;
-import static org.springframework.http.HttpMethod.POST;
-import static org.springframework.http.HttpMethod.PUT;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -64,25 +62,23 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
 
                 // allow anonymous resource requests
-                .antMatchers(
-                        HttpMethod.GET,
-                        "/",
-                        "/*.html",
-                        "/favicon.ico",
-                        "/**/*.html",
-                        "/**/*.css",
-                        "/**/*.js"
-                ).permitAll()
-                .antMatchers("/auth/**").permitAll()
-                .antMatchers("/users").permitAll()
-                .antMatchers(GET, "/webjars/springfox-swagger-ui/**").permitAll()
-                .antMatchers(GET, "/v2/api-docs/**").permitAll()
-                .antMatchers(GET, "/configuration/**").permitAll()
-                .antMatchers(GET, "/swagger-resources/**").permitAll()
-                //.antMatchers(GET, "/").hasRole("USER")
-                //.antMatchers(POST, "/").hasRole("USER")
-                //.antMatchers(PUT, "/").hasRole("USER")
-                .anyRequest().authenticated();
+//                .antMatchers(HttpMethod.OPTIONS).permitAll()
+//                .antMatchers(
+//                        HttpMethod.GET,
+//                        "/",
+//                        "/*.html",
+//                        "/favicon.ico",
+//                        "/**/*.html",
+//                        "/**/*.css",
+//                        "/**/*.js"
+//                ).permitAll()
+//                .antMatchers("/auth/**").permitAll()
+//                .antMatchers("/refresh/**").permitAll()
+//                .antMatchers(GET, "/webjars/springfox-swagger-ui/**").permitAll()
+//                .antMatchers(GET, "/v2/api-docs/**").permitAll()
+//                .antMatchers(GET, "/configuration/**").permitAll()
+//                .antMatchers(GET, "/swagger-resources/**").permitAll()
+                .anyRequest().permitAll();
 
         // Custom JWT based security filter
         httpSecurity
