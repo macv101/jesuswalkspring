@@ -39,7 +39,7 @@ public class UserController {
 	
 	@ApiOperation(value = "postUsers", nickname = "postUsers")
 	@RequestMapping(method = RequestMethod.PUT)
-	@PreAuthorize("hasRole('ADMIN')")
+	//@PreAuthorize("hasRole('ADMIN')")
 	public ResponseEntity<List<User>> saveAll(
 			@RequestBody List<User> users ) {
 		List<User> ret = service.save(users);

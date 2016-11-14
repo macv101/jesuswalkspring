@@ -4,9 +4,12 @@ import java.util.Properties;
 
 import javax.sql.DataSource;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
+import org.springframework.context.annotation.PropertySource;
+import org.springframework.context.annotation.PropertySources;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
@@ -14,74 +17,69 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
 @EnableTransactionManagement
+@PropertySources({
+	@PropertySource("file:./application.properties"),
+	@PropertySource("file:./persistence.properties")
+})
 public class MySqlConfig {
 
-	/*
-	 * Preferential Properties
-	 */
-	private String HIBERNATE_DIALECT; // SQL Syntax version. Determines
-										// deprecated/updated functions,
-										// methods, etc in SQL syntax
-	private String HIBERNATE_SHOW_SQL; // Spring outputs the SQL statement used
-										// for request on the console
-	private String HIBERNATE_HBM2DDL_AUTO; // Dev tool to create tables through
-											// Java code. IMPORTANT: DO NOT USE
-											// IN PRODUCTION
-	private String ENTITYMANAGER_PACKAGES_TO_SCAN; // Tells Spring the packages
-													// to scan
+	@Value("${App.Env}")
+	private String env;
 
-	/*
-	 * Essential Properties
-	 */
-	private String DB_DRIVER;
+	// ========================
+	// DATASOURCE PROPERTIES
+	// ========================
+	@Value("${spring.datasource.username}")
 	private String DB_USERNAME;
+
+	@Value("${spring.datasource.password}")
 	private String DB_PASSWORD;
-	private String DB_URL;
 
-	MySqlConfig() {
-		InitSQLVariables();
+	@Value("${spring.datasource.host}")
+	private String DB_HOST;
+
+	@Value("${spring.datasource.port}")
+	private String DB_PORT;
+
+	@Value("${spring.datasource.name}")
+	private String DB_NAME;
+
+	// ========================
+	// HIBERNATE PROPERTIES
+	// ========================
+	@Value("${spring.jpa.hibernate.ddl-auto}")
+	private String HIBERNATE_HBM2DDL_AUTO;
+	
+	@Value("${spring.jpa.show-sql}")
+	private String HIBERNATE_SHOW_SQL;
+	
+	@Value("${spring.jpa.hibernate.naming-strategy}")
+	private String HIBERNATE_NAMING_STRATEGY;
+	
+	@Value("${spring.jpa.properties.hibernate.dialect}")
+	private String HIBERNATE_DIALECT;
+
+	public MySqlConfig() {	}
+
+	private String resolveUrl() {
+		
+		System.out.println(DB_HOST);
+		System.out.println(DB_PORT);
+		System.out.println(DB_NAME);
+		
+		String jdbc = String.format("jdbc:mysql://%s:%s/%s", DB_HOST, DB_PORT, DB_NAME);
+		System.out.println(jdbc);
+		
+		return jdbc;
+
 	}
 
-	private void InitSQLVariables() {
-		String USERNAME = System.getenv("OPENSHIFT_MYSQL_DB_USERNAME");
-		String PASSWORD = System.getenv("OPENSHIFT_MYSQL_DB_PASSWORD");
-		String HOST = System.getenv("OPENSHIFT_MYSQL_DB_HOST");
-		String PORT = System.getenv("OPENSHIFT_MYSQL_DB_PORT");
-		String NAME = System.getenv("OPENSHIFT_APP_NAME");
-		String URL = "jdbc:mysql://" + HOST + ":" + PORT + "/" + NAME;
-
-		if (USERNAME != null && !USERNAME.isEmpty() || 
-				PASSWORD != null && !PASSWORD.isEmpty() || 
-				HOST != null && !HOST.isEmpty()) {
-			DB_USERNAME = USERNAME;
-			DB_PASSWORD = PASSWORD;
-			DB_URL = URL;
-		} else {
-			DB_USERNAME = "root";
-			DB_PASSWORD = "";
-			DB_URL = "jdbc:mysql://localhost:3306/jwtest";
-		}
-
-		DB_DRIVER = "com.mysql.jdbc.Driver";
-		HIBERNATE_DIALECT = "org.hibernate.dialect.MySQL5Dialect";
-		HIBERNATE_SHOW_SQL = "true";
-		HIBERNATE_HBM2DDL_AUTO = "update";
-		ENTITYMANAGER_PACKAGES_TO_SCAN = "com.jesuswalk";
-
-	}
-
-	/*
-	 * Essential Public Objects needed to execute CRUD operations to MYSQL
-	 * database -DataSource: Parent object that contains all connection
-	 * properties -EntityManagerFactory: Factory that can be distributed to
-	 * controllers
-	 */
 	@Bean
 	@Primary
 	public DataSource dataSource() {
 		DriverManagerDataSource dataSource = new DriverManagerDataSource();
-		dataSource.setDriverClassName(DB_DRIVER);
-		dataSource.setUrl(DB_URL);
+		dataSource.setDriverClassName("com.mysql.jdbc.Driver");
+		dataSource.setUrl(resolveUrl());
 		dataSource.setUsername(DB_USERNAME);
 		dataSource.setPassword(DB_PASSWORD);
 		return dataSource;
@@ -91,7 +89,7 @@ public class MySqlConfig {
 	public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
 		LocalContainerEntityManagerFactoryBean entityManagerFactory = new LocalContainerEntityManagerFactoryBean();
 		entityManagerFactory.setDataSource(dataSource());
-		entityManagerFactory.setPackagesToScan(ENTITYMANAGER_PACKAGES_TO_SCAN);
+		entityManagerFactory.setPackagesToScan("com.jesuswalk");
 
 		HibernateJpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
 		entityManagerFactory.setJpaVendorAdapter(vendorAdapter);

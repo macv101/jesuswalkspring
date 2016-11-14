@@ -1,4 +1,4 @@
-package com.jesuswalk.config;
+/*package com.jesuswalk.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -10,7 +10,7 @@ import com.mongodb.Mongo;
 import com.mongodb.MongoCredential;
 
 
-@Configuration
+//@Configuration
 class MongoConfigurationBeans {
 
     @Bean
@@ -27,3 +27,4 @@ class MongoConfigurationBeans {
         return new MongoTemplate(mongo, "JesusWalk");
     }
 }
+*/

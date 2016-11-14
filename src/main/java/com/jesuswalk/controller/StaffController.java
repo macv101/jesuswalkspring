@@ -40,7 +40,6 @@ public class StaffController {
 	
 	@ApiOperation(value = "updateStaff", nickname = "updateStaff")
 	@RequestMapping(method = RequestMethod.PUT)
-	@PreAuthorize("hasAnyRole('STAFF', 'ADMIN')")
 	@ResponseBody
 	public ResponseEntity<Staff> update(@RequestBody Staff staff) {
 		Staff ret = service.save(staff);
