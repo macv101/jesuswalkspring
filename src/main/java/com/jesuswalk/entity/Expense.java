@@ -16,6 +16,8 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 @Table(name="expense")
 public class Expense extends BaseEntity {
 
+	private String url;
+	
 	@OneToOne
 	@JoinColumn(name = "staff_id")
 	private Staff staff;
@@ -24,7 +26,7 @@ public class Expense extends BaseEntity {
 	private String year;
 	
 	@ManyToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "account_code")
+	@JoinColumn(name = "account_code", referencedColumnName = "code")
 	private AccountCode accountcode;
 	
 	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern="yyyy.MM.dd")
@@ -41,8 +43,14 @@ public class Expense extends BaseEntity {
 	private String reimbursed;
 	private String notes;
 	
-	private boolean complete;
+	private String status;
 	
+	public String getUrl() {
+		return url;
+	}
+	public void setUrl(String url) {
+		this.url = url;
+	}
 	public Staff getStaff() {
 		return staff;
 	}
@@ -121,11 +129,11 @@ public class Expense extends BaseEntity {
 	public void setNotes(String notes) {
 		this.notes = notes;
 	}
-	public boolean isComplete() {
-		return complete;
+	public String getStatus() {
+		return status;
 	}
-	public void setComplete(boolean complete) {
-		this.complete = complete;
+	public void setStatus(String status) {
+		this.status = status;
 	}
 	
 	
