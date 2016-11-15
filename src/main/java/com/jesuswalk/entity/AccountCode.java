@@ -9,10 +9,10 @@ import javax.persistence.Table;
 public class AccountCode {
 
 	@Id
-	private Long code;
-	private String type;
+	private Long code;	
 	private String department;
 	private String committee;
+	private String type;
 	
 	public Long getCode() {
 		return code;
@@ -20,14 +20,6 @@ public class AccountCode {
 	
 	public void setCode(Long code) {
 		this.code = code;
-	}
-	
-	public String getType() {
-		return type;
-	}
-	
-	public void setType(String type) {
-		this.type = type;
 	}
 	
 	public String getDepartment() {
@@ -46,5 +38,12 @@ public class AccountCode {
 		this.committee = committee;
 	}
 	
+	public String getType() {
+		return type;
+	}
+	
+	public void setType(String type) {
+		this.type = type;
+	}
 	
 }

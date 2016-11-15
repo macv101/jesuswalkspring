@@ -3,8 +3,10 @@ package com.jesuswalk.entity;
 import java.math.BigDecimal;
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -19,80 +21,114 @@ public class Expense extends BaseEntity {
 	private Staff staff;
 	private String vendor;
 	
-	@OneToOne
+	private String year;
+	
+	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "account_code")
 	private AccountCode accountcode;
 	
 	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern="yyyy.MM.dd")
-	private Date dateofpurchase;
+	private Date projecteddate;
 	private String description;
-	private BigDecimal amount;
+	private BigDecimal projectedcost;
+	
+	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern="yyyy.MM.dd")
+	private Date dateofpurchase;
+	private BigDecimal actualcost;
+	private BigDecimal remaining;
+	
 	private String formofpayment;
 	private String reimbursed;
+	private String notes;
+	
+	private boolean complete;
 	
 	public Staff getStaff() {
 		return staff;
 	}
-	
 	public void setStaff(Staff staff) {
 		this.staff = staff;
 	}
-	
 	public String getVendor() {
 		return vendor;
 	}
-	
 	public void setVendor(String vendor) {
 		this.vendor = vendor;
 	}
-	
-	public AccountCode getAccountCoude() {
+	public String getYear() {
+		return year;
+	}
+	public void setYear(String year) {
+		this.year = year;
+	}
+	public AccountCode getAccountcode() {
 		return accountcode;
 	}
-	
-	public void setAccountCode(AccountCode accountcode) {
+	public void setAccountcode(AccountCode accountcode) {
 		this.accountcode = accountcode;
 	}
-	
-	public Date getDateofpurchase() {
-		return dateofpurchase;
+	public Date getProjecteddate() {
+		return projecteddate;
 	}
-	
-	public void setDateofpurchase(Date dateofpurchase) {
-		this.dateofpurchase = dateofpurchase;
+	public void setProjecteddate(Date projecteddate) {
+		this.projecteddate = projecteddate;
 	}
-	
 	public String getDescription() {
 		return description;
 	}
-	
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	
-	public BigDecimal getAmount() {
-		return amount;
+	public BigDecimal getProjectedcost() {
+		return projectedcost;
 	}
-	
-	public void setAmount(BigDecimal amount) {
-		this.amount = amount;
+	public void setProjectedcost(BigDecimal projectedcost) {
+		this.projectedcost = projectedcost;
 	}
-	
+	public Date getDateofpurchase() {
+		return dateofpurchase;
+	}
+	public void setDateofpurchase(Date dateofpurchase) {
+		this.dateofpurchase = dateofpurchase;
+	}
+	public BigDecimal getActualcost() {
+		return actualcost;
+	}
+	public void setActualcost(BigDecimal actualcost) {
+		this.actualcost = actualcost;
+	}
+	public BigDecimal getRemaining() {
+		return remaining;
+	}
+	public void setRemaining(BigDecimal remaining) {
+		this.remaining = remaining;
+	}
 	public String getFormofpayment() {
 		return formofpayment;
 	}
-	
 	public void setFormofpayment(String formofpayment) {
 		this.formofpayment = formofpayment;
 	}
-	
 	public String getReimbursed() {
 		return reimbursed;
 	}
-	
 	public void setReimbursed(String reimbursed) {
 		this.reimbursed = reimbursed;
 	}
+	public String getNotes() {
+		return notes;
+	}
+	public void setNotes(String notes) {
+		this.notes = notes;
+	}
+	public boolean isComplete() {
+		return complete;
+	}
+	public void setComplete(boolean complete) {
+		this.complete = complete;
+	}
+	
+	
 	
 	
 }
