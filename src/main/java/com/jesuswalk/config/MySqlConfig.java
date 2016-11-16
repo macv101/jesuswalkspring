@@ -23,9 +23,6 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 })
 public class MySqlConfig {
 
-	@Value("${App.Env}")
-	private String env;
-
 	// ========================
 	// DATASOURCE PROPERTIES
 	// ========================

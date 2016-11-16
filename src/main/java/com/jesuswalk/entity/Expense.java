@@ -3,7 +3,6 @@ package com.jesuswalk.entity;
 import java.math.BigDecimal;
 import java.util.Date;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -25,8 +24,7 @@ public class Expense extends BaseEntity {
 	
 	private String year;
 	
-	@ManyToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "account_code", referencedColumnName = "code")
+	@ManyToOne
 	private AccountCode accountcode;
 	
 	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern="yyyy.MM.dd")
