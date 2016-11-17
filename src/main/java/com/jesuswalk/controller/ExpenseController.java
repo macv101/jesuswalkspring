@@ -30,11 +30,22 @@ public class ExpenseController {
 	@ApiOperation(value = "saveExpense", nickname = "saveExpense")
 	@RequestMapping(method = RequestMethod.POST)
 	@ResponseBody
-	public ResponseEntity<Expense> save(@RequestBody Expense expense) {
+	public ResponseEntity<?> save(@RequestBody Expense expense) {
 
-		service.save(expense);
+		Expense ret = service.save(expense);
 
-		return new ResponseEntity<Expense>(HttpStatus.OK);
+		return new ResponseEntity<Expense>(ret, HttpStatus.OK);
+
+	}
+	
+	@ApiOperation(value = "saveAllExpense", nickname = "saveAllExpense")
+	@RequestMapping(method = RequestMethod.PUT)
+	@ResponseBody
+	public ResponseEntity<List<Expense>> saveAll(@RequestBody List<Expense> expenses) {
+
+		List<Expense> ret = service.saveAll(expenses);
+
+		return new ResponseEntity<List<Expense>>(ret, HttpStatus.OK);
 
 	}
 
@@ -60,7 +71,6 @@ public class ExpenseController {
 			ret = service.findByYearAndAccountCode(year, code);
 		else
 			ret = service.findByYear(year);
-		;
 
 		return new ResponseEntity<List<Expense>>(ret, HttpStatus.OK);
 

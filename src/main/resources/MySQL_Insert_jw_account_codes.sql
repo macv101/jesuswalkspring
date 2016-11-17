@@ -1,4 +1,4 @@
-INSERT INTO `accountcode`(`code`, `committee`, `department`, `type`) 
+INSERT INTO `accountcode`(`code`, `department`, `committee`, `type`) 
 VALUES
 ('10101', 'Executive', 'Executive', 'General'),
 ('10102', 'Executive', 'Executive', 'Misc'),
@@ -11,8 +11,8 @@ VALUES
 ('20103', 'Marketing', 'Marketing', 'Events'),
 ('20201', 'Marketing', 'Networking', 'General'),
 ('20202', 'Marketing', 'Networking', 'Travel'),
-('20301', 'Marketing', 'Creative Media', 'General'),
-('20302', 'Marketing', 'Creative Media', 'Welcome Packets'),
+('20301', 'Marketing', 'CreativeMedia', 'General'),
+('20302', 'Marketing', 'CreativeMedia', 'Welcome Packets'),
 ('20401', 'Marketing', 'Production', 'General'),
 ('20402', 'Marketing', 'Production', 'Stage Design'),
 ('20403', 'Marketing', 'Production', 'Misc'),
@@ -27,14 +27,14 @@ VALUES
 ('40104', 'Operations', 'Finance', 'Registration'),
 ('40105', 'Operations', 'Finance', 'Insurance'),
 ('40106', 'Operations', 'Finance', 'Fundraising'),
-('40201', 'Operations', 'Conference Services', 'General'),
-('40202', 'Operations', 'Conference Services', 'Misc'),
-('40203', 'Operations', 'Conference Services', 'Pre-Conference General'),
-('40204', 'Operations', 'Conference Services', 'Dorm Accomodations'),
-('40205', 'Operations', 'Conference Services', 'Food'),
-('40206', 'Operations', 'Conference Services', 'Counselor Services General'),
-('40207', 'Operations', 'Conference Services', 'Counselor Services Workshops'),
-('40301', 'Operations', 'Systems Development', 'General'),
-('40302', 'Operations', 'Systems Development', 'Misc'),
-('40303', 'Operations', 'Systems Development', 'Web App'),
-('40304', 'Operations', 'Systems Development', 'Website');
+('40201', 'Operations', 'ConferenceServices', 'General'),
+('40202', 'Operations', 'ConferenceServices', 'Misc'),
+('40203', 'Operations', 'ConferenceServices', 'Pre-Conference General'),
+('40204', 'Operations', 'ConferenceServices', 'Dorm Accomodations'),
+('40205', 'Operations', 'ConferenceServices', 'Food'),
+('40206', 'Operations', 'ConferenceServices', 'Counselor Services General'),
+('40207', 'Operations', 'ConferenceServices', 'Counselor Services Workshops'),
+('40301', 'Operations', 'SystemsDevelopment', 'General'),
+('40302', 'Operations', 'SystemsDevelopment', 'Misc'),
+('40303', 'Operations', 'SystemsDevelopment', 'Web App'),
+('40304', 'Operations', 'SystemsDevelopment', 'Website');

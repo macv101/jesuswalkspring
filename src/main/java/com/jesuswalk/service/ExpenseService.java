@@ -6,7 +6,9 @@ import com.jesuswalk.entity.Expense;
 
 public interface ExpenseService {
 	
-	void save(Expense expense);
+	Expense save(Expense expense);
+	List<Expense> saveAll(List<Expense> expense);
+	
 	List<Expense> findAll();
 	
 	List<Expense> findByYear(String year);

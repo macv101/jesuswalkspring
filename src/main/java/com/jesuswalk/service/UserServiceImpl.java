@@ -17,10 +17,12 @@ private final UserRepository repository;
 	UserServiceImpl(UserRepository repository) {
 		this.repository = repository;
 	}
+	
 	@Override
 	public List<User> findAll() {
 		return (List<User>) repository.findAll();
 	}
+	
 	@Override
 	public List<User> save(List<User> users) {
 		for(User user : users) {

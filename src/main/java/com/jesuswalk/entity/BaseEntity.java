@@ -31,7 +31,7 @@ public abstract class BaseEntity {
 		this.id = id;
 	}
 
-	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern="yyyy.MM.dd HH:mm")
+	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern="yyyy-MM-dd HH:mm")
 	public Date getCreationDate() {
 		return creationdate;
 	}
@@ -40,7 +40,7 @@ public abstract class BaseEntity {
 		this.creationdate = creationdate;
 	}
 
-	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern="yyyy.MM.dd HH:mm")
+	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern="yyyy-MM-dd HH:mm")
 	public Date getLastUpdated() {
 		return lastupdated;
 	}
