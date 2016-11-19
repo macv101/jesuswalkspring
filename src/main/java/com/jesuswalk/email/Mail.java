@@ -16,7 +16,7 @@ public class Mail {
 	private String subject;
 	private String content;
 	
-	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern="yyyy.MM.dd")
+	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern="yyyy-MM-dd")
 	private Date dateReceived;
 	private boolean unread;
 	

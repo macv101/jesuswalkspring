@@ -27,12 +27,12 @@ public class Expense extends BaseEntity {
 	@ManyToOne
 	private AccountCode accountcode;
 	
-	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern="yyyy.MM.dd")
+	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern="yyyy-MM-dd")
 	private Date projecteddate;
 	private String description;
 	private BigDecimal projectedcost;
 	
-	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern="yyyy.MM.dd")
+	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern="yyyy-MM-dd")
 	private Date dateofpurchase;
 	private BigDecimal actualcost;
 	private BigDecimal remaining;

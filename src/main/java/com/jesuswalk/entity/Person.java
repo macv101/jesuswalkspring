@@ -49,7 +49,7 @@ public abstract class Person extends BaseEntity{
 		this.sex = sex;
 	}
 	
-	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern="yyyy.MM.dd")
+	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern="yyyy-MM-dd")
 	public Date getBirthdate() {
 		return birthdate;
 	}

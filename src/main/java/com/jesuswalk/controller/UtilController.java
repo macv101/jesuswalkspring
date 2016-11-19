@@ -1,4 +1,4 @@
-package com.jesuswalk.controller;
+/*package com.jesuswalk.controller;
 
 import com.barcodelib.barcode.Linear;
 import com.jesuswalk.entity.User;
@@ -113,3 +113,4 @@ public class UtilController {
     }
 
 }
+*/
