@@ -1,4 +1,4 @@
-package com.jesuswalk.entity;
+package com.jesuswalk.entity.detail;
 
 import java.math.BigDecimal;
 
@@ -6,6 +6,9 @@ import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import com.jesuswalk.entity.BaseEntity;
+import com.jesuswalk.entity.User;
 
 @Entity
 @Table(name="registration")

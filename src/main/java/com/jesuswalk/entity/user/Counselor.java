@@ -1,4 +1,4 @@
-package com.jesuswalk.entity;
+package com.jesuswalk.entity.user;
 
 import java.util.List;
 
@@ -7,6 +7,7 @@ import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.jesuswalk.entity.User;
 
 @Entity
 @Table(name = "counselor")

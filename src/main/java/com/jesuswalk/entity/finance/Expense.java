@@ -1,4 +1,4 @@
-package com.jesuswalk.entity;
+package com.jesuswalk.entity.finance;
 
 import java.math.BigDecimal;
 import java.util.Date;
@@ -10,6 +10,8 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.jesuswalk.entity.BaseEntity;
+import com.jesuswalk.entity.user.Staff;
 
 @Entity
 @Table(name="expense")

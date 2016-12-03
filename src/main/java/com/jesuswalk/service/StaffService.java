@@ -2,7 +2,7 @@ package com.jesuswalk.service;
 
 import java.util.List;
 
-import com.jesuswalk.entity.Staff;
+import com.jesuswalk.entity.user.Staff;
 
 public interface StaffService {
 

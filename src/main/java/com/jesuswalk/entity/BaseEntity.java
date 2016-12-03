@@ -18,10 +18,6 @@ public abstract class BaseEntity {
 	
 	private Date creationdate;
 	private Date lastupdated;
-	
-	BaseEntity() {
-		super();
-	}
 
 	public Long getId() {
 		return id;

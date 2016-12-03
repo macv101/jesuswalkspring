@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.jesuswalk.entity.Expense;
+import com.jesuswalk.entity.finance.Expense;
 import com.jesuswalk.service.ExpenseService;
 
 import io.swagger.annotations.Api;

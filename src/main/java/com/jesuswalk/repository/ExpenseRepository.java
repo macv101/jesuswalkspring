@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.springframework.data.repository.CrudRepository;
 
-import com.jesuswalk.entity.Expense;
+import com.jesuswalk.entity.finance.Expense;
 
 public interface ExpenseRepository extends CrudRepository<Expense, Long> {
 	

@@ -1,4 +1,4 @@
-package com.jesuswalk.entity;
+package com.jesuswalk.entity.finance;
 
 import java.util.List;
 

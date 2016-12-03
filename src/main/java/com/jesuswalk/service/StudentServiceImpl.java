@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.jesuswalk.entity.Student;
+import com.jesuswalk.entity.user.Student;
 import com.jesuswalk.repository.StudentRepository;
 
 

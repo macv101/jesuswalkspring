@@ -1,7 +1,9 @@
-package com.jesuswalk.entity;
+package com.jesuswalk.entity.user;
 
 import javax.persistence.Entity;
 import javax.persistence.Table;
+
+import com.jesuswalk.entity.User;
 
 @Entity
 @Table(name = "staff")

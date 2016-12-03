@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.jesuswalk.entity.Counselor;
+import com.jesuswalk.entity.user.Counselor;
 import com.jesuswalk.repository.CounselorRepository;
 
 @Service

@@ -21,6 +21,12 @@ import javax.persistence.TemporalType;
 
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import com.jesuswalk.entity.detail.Church;
+import com.jesuswalk.entity.detail.LegalGuardian;
+import com.jesuswalk.entity.user.Authority;
+import com.jesuswalk.entity.user.Counselor;
+import com.jesuswalk.entity.user.Staff;
+import com.jesuswalk.entity.user.Student;
 
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.PROPERTY, property = "type")
 @JsonSubTypes({ @JsonSubTypes.Type(value = Student.class, name = "student"),

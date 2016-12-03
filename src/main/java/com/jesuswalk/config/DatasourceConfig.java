@@ -4,12 +4,13 @@ import java.util.Properties;
 
 import javax.sql.DataSource;
 
-import org.springframework.beans.factory.annotation.Value;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.annotation.PropertySources;
+import org.springframework.core.env.Environment;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
@@ -21,64 +22,27 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 	@PropertySource("file:./application.properties"),
 	@PropertySource("file:./persistence.properties")
 })
-public class MySqlConfig {
+public class DatasourceConfig {
 
-	// ========================
-	// DATASOURCE PROPERTIES
-	// ========================
-	@Value("${spring.datasource.username}")
-	private String DB_USERNAME;
+	@Autowired
+	private Environment env;
 
-	@Value("${spring.datasource.password}")
-	private String DB_PASSWORD;
-
-	@Value("${spring.datasource.host}")
-	private String DB_HOST;
-
-	@Value("${spring.datasource.port}")
-	private String DB_PORT;
-
-	@Value("${spring.datasource.name}")
-	private String DB_NAME;
-
-	// ========================
-	// HIBERNATE PROPERTIES
-	// ========================
-	@Value("${spring.jpa.hibernate.ddl-auto}")
-	private String HIBERNATE_HBM2DDL_AUTO;
-	
-	@Value("${spring.jpa.show-sql}")
-	private String HIBERNATE_SHOW_SQL;
-	
-	@Value("${spring.jpa.hibernate.naming-strategy}")
-	private String HIBERNATE_NAMING_STRATEGY;
-	
-	@Value("${spring.jpa.properties.hibernate.dialect}")
-	private String HIBERNATE_DIALECT;
-
-	public MySqlConfig() {	}
-
-	private String resolveUrl() {
-		
-		System.out.println(DB_HOST);
-		System.out.println(DB_PORT);
-		System.out.println(DB_NAME);
-		
-		String jdbc = String.format("jdbc:mysql://%s:%s/%s", DB_HOST, DB_PORT, DB_NAME);
-		System.out.println(jdbc);
-		
-		return jdbc;
-
-	}
+	public DatasourceConfig() {	}
 
 	@Bean
 	@Primary
 	public DataSource dataSource() {
 		DriverManagerDataSource dataSource = new DriverManagerDataSource();
+		String url = String.format("jdbc:mysql://%s:%s/%s", 
+				env.getProperty("spring.datasource.host"), 
+				env.getProperty("spring.datasource.port"), 
+				env.getProperty("spring.datasource.name"));
+		
 		dataSource.setDriverClassName("com.mysql.jdbc.Driver");
-		dataSource.setUrl(resolveUrl());
-		dataSource.setUsername(DB_USERNAME);
-		dataSource.setPassword(DB_PASSWORD);
+		dataSource.setUrl(url);
+		dataSource.setUsername(env.getProperty("spring.datasource.username"));
+		dataSource.setPassword(env.getProperty("spring.datasource.password"));
+		
 		return dataSource;
 	}
 
@@ -92,12 +56,27 @@ public class MySqlConfig {
 		entityManagerFactory.setJpaVendorAdapter(vendorAdapter);
 
 		Properties jpaProperties = new Properties();
-		jpaProperties.put("hibernate.dialect", HIBERNATE_DIALECT);
-		jpaProperties.put("hibernate.show_sql", HIBERNATE_SHOW_SQL);
-		jpaProperties.put("hibernate.hbm2ddl.auto", HIBERNATE_HBM2DDL_AUTO);
+		jpaProperties.put("hibernate.dialect", env.getProperty("spring.jpa.properties.hibernate.dialect"));
+		jpaProperties.put("hibernate.show_sql", env.getProperty("spring.jpa.show-sql"));
+		jpaProperties.put("hibernate.hbm2ddl.auto", env.getProperty("spring.jpa.hibernate.ddl-auto"));
 		entityManagerFactory.setJpaProperties(jpaProperties);
 
 		return entityManagerFactory;
 	}
+	
+    /*@Bean
+    public MongoClientFactoryBean mongo() {
+        MongoClientFactoryBean mongo = new MongoClientFactoryBean();
+        mongo.setHost("localhost");
+        mongo.setPort(27017);
+        MongoCredential[] credentials = { MongoCredential.createCredential("", "JesusWalk", "".toCharArray())};
+        mongo.setCredentials(credentials);
+        return mongo;
+    }
+    
+    @Bean
+    public MongoOperations mongoTemplate(Mongo mongo) {
+        return new MongoTemplate(mongo, "JesusWalk");
+    }*/
 
 }

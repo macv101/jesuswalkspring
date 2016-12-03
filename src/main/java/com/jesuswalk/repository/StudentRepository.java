@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.springframework.data.repository.CrudRepository;
 
-import com.jesuswalk.entity.Student;
+import com.jesuswalk.entity.user.Student;
 
 /*
  * CrudRepository is inherited from Spring framework

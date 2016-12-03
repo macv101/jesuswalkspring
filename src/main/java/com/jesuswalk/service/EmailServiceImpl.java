@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.jesuswalk.email.EmailClient;
-import com.jesuswalk.entity.Staff;
+import com.jesuswalk.entity.user.Staff;
 import com.jesuswalk.repository.StaffRepository;
 import com.jesuswalk.response.EmailResponse;
 

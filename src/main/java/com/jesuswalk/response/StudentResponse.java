@@ -2,7 +2,7 @@ package com.jesuswalk.response;
 
 import java.util.List;
 
-import com.jesuswalk.entity.Student;
+import com.jesuswalk.entity.user.Student;
 
 public class StudentResponse {
 	

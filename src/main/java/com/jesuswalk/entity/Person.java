@@ -8,9 +8,10 @@ import javax.persistence.ManyToOne;
 import javax.persistence.MappedSuperclass;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.jesuswalk.entity.detail.Address;
 
 @MappedSuperclass
-public abstract class Person extends BaseEntity{
+public abstract class Person extends BaseEntity {
 
 	private String firstname;
 	private String lastname;

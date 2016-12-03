@@ -1,4 +1,4 @@
-package com.jesuswalk.entity;
+package com.jesuswalk.entity.user;
 
 import java.util.List;
 
@@ -6,6 +6,8 @@ import javax.persistence.Entity;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+
+import com.jesuswalk.entity.User;
 
 @Entity
 @Table(name = "student")

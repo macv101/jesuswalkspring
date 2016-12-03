@@ -6,7 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.jesuswalk.entity.Expense;
+import com.jesuswalk.entity.finance.Expense;
 import com.jesuswalk.repository.ExpenseRepository;
 
 @Service

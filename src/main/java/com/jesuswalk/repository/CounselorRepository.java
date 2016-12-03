@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.springframework.data.repository.CrudRepository;
 
-import com.jesuswalk.entity.Counselor;
+import com.jesuswalk.entity.user.Counselor;
 
 public interface CounselorRepository extends CrudRepository<Counselor, Long>{
 
